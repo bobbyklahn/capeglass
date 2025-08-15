@@ -89,7 +89,7 @@ export default function Header() {
               </div>
             </div>
             <Link href="/about" className="px-3 py-2 text-charcoal-black hover:text-cape-green hover:bg-light-grey rounded-lg transition-all duration-300 font-medium text-base">
-              About
+              About Us
             </Link>
             <Link href="/contact" className="px-3 py-2 text-charcoal-black hover:text-cape-green hover:bg-light-grey rounded-lg transition-all duration-300 font-medium text-base">
               Contact
@@ -178,7 +178,7 @@ export default function Header() {
                   onClick={() => setIsMenuOpen(false)}
                   className="block py-3 px-4 text-charcoal-black hover:text-cape-green hover:bg-light-grey rounded-lg transition-all duration-300 font-medium"
                 >
-                  About
+                  About Us
                 </Link>
                 <Link
                   href="/contact"

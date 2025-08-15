@@ -101,6 +101,6 @@ export const NAVIGATION_ITEMS = [
   { href: '/services/screen-printing', label: 'Screen Printing' },
   { href: '/services/embossing', label: 'Embossing' },
   { href: '/services/thermal-transfer', label: 'Thermal Transfer' },
-  { href: '/about', label: 'About' },
+  { href: '/about', label: 'About Us' },
   { href: '/contact', label: 'Contact' },
 ];
