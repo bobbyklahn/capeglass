@@ -1,0 +1,21 @@
+{
+  "name": "Cape Glass - Premium Wine Bottles",
+  "short_name": "Cape Glass",
+  "description": "Premium wine bottle supplier from China to Australia",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAFA",
+  "theme_color": "#4CAF50",
+  "icons": [
+    {
+      "src": "/images/CAPELOGO/finalcapelogo@300x.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/CAPELOGO/finalcapelogo@300x.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
