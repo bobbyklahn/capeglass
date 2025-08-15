@@ -80,8 +80,17 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-warm-white">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-charcoal-black via-charcoal-black to-cape-green overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/bottles/aboutushero.png"
+            alt="About Cape Glass Hero"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
         <motion.div 
           className="container mx-auto px-6 relative z-10"
           initial={{ opacity: 0 }}
