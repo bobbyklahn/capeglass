@@ -40,7 +40,7 @@ export default function Header() {
               alt="Cape Glass Logo"
               width={300}
               height={100}
-              className="h-10 sm:h-12 lg:h-16 xl:h-20 w-auto object-contain"
+              className="h-10 sm:h-12 lg:h-20 xl:h-24 2xl:h-28 w-auto object-contain"
               priority
             />
           </Link>
