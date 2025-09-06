@@ -15,12 +15,12 @@ export default function About() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl lg:text-6xl font-light text-slate-900 mb-8">
+            <h2 className="text-4xl lg:text-6xl font-serif font-light text-slate-900 mb-8">
               Australian Wine Industry
               <span className="block font-bold text-green-600">Excellence</span>
             </h2>
             
-            <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
+            <div className="space-y-6 text-lg font-sans text-slate-600 leading-relaxed">
               <p>
                 Cape Glass is a leading importer of premium wine bottles for the Australian 
                 wine industry, specializing in sourcing exquisite, high-quality bottles globally 
@@ -43,15 +43,15 @@ export default function About() {
             <div className="mt-12 grid grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-600 mb-2">48hr</div>
-                <div className="text-slate-600">Response Time</div>
+                <div className="font-sans text-slate-600">Response Time</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-600 mb-2">30,000</div>
-                <div className="text-slate-600">Tons Annual Output</div>
+                <div className="font-sans text-slate-600">Tons Annual Output</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-600 mb-2">500+</div>
-                <div className="text-slate-600">Custom Batch Min</div>
+                <div className="font-sans text-slate-600">Custom Batch Min</div>
               </div>
             </div>
             
@@ -90,8 +90,8 @@ export default function About() {
               viewport={{ once: true }}
               className="absolute -bottom-8 -left-8 bg-white p-8 rounded-2xl shadow-2xl max-w-sm"
             >
-              <h4 className="text-xl font-bold text-slate-900 mb-3">Sustainability Focus</h4>
-              <p className="text-slate-600">
+              <h4 className="text-xl font-serif font-bold text-slate-900 mb-3">Sustainability Focus</h4>
+              <p className="font-sans text-slate-600">
                 Our manufacturing partners use advanced, eco-friendly technologies 
                 including electric furnaces to significantly reduce carbon footprint.
               </p>

@@ -176,13 +176,13 @@ export default function ServicesPage() {
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl lg:text-7xl font-light text-white mb-8">
+            <h1 className="text-5xl lg:text-7xl font-serif font-light text-white mb-8">
               Premium
               <span className="block font-bold bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
                 Decorative Services
               </span>
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-300 mb-12 leading-relaxed">
+            <p className="text-xl lg:text-2xl font-sans text-gray-300 mb-12 leading-relaxed">
               Transform your wine bottles with our comprehensive range of decorative services. 
               From screen printing to custom molding, we enhance your brand with precision and style.
             </p>
@@ -217,7 +217,7 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl lg:text-4xl font-light text-slate-900 mb-6">
+            <h2 className="text-3xl lg:text-4xl font-serif font-light text-slate-900 mb-6">
               Why Choose <span className="font-bold text-green-600">Cape Glass</span>
             </h2>
           </motion.div>
@@ -233,8 +233,8 @@ export default function ServicesPage() {
                 className="text-center p-6 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors"
               >
                 <div className="text-4xl mb-4">{value.icon}</div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{value.title}</h3>
-                <p className="text-slate-600">{value.description}</p>
+                <h3 className="text-xl font-serif font-bold text-slate-900 mb-3">{value.title}</h3>
+                <p className="font-sans text-slate-600">{value.description}</p>
               </motion.div>
             ))}
           </div>
@@ -251,10 +251,10 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">
+            <h2 className="text-4xl lg:text-5xl font-serif font-light text-slate-900 mb-6">
               Our <span className="font-bold text-green-600">Services</span>
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <p className="text-xl font-sans text-slate-600 max-w-3xl mx-auto">
               Comprehensive decorative and manufacturing services designed specifically 
               for the Australian wine industry&apos;s demanding quality standards.
             </p>
@@ -294,28 +294,28 @@ export default function ServicesPage() {
                 
                 <div className={`space-y-8 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                   <div>
-                    <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
+                    <h3 className="text-3xl lg:text-4xl font-serif font-bold text-slate-900 mb-4">
                       {service.title}
                     </h3>
-                    <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                    <p className="text-lg font-sans text-slate-600 leading-relaxed mb-6">
                       {service.description}
                     </p>
                   </div>
                   
                   <div>
-                    <h4 className="text-xl font-bold text-slate-900 mb-4">Key Features</h4>
+                    <h4 className="text-xl font-serif font-bold text-slate-900 mb-4">Key Features</h4>
                     <div className="grid md:grid-cols-2 gap-3">
                       {service.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center">
                           <div className="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0" />
-                          <span className="text-slate-700">{feature}</span>
+                          <span className="font-sans text-slate-700">{feature}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                   
                   <div>
-                    <h4 className="text-xl font-bold text-slate-900 mb-4">Applications</h4>
+                    <h4 className="text-xl font-serif font-bold text-slate-900 mb-4">Applications</h4>
                     <div className="flex flex-wrap gap-2">
                       {service.applications.map((app, idx) => (
                         <span
@@ -329,7 +329,7 @@ export default function ServicesPage() {
                   </div>
                   
                   <div>
-                    <h4 className="text-xl font-bold text-slate-900 mb-4">Specifications</h4>
+                    <h4 className="text-xl font-serif font-bold text-slate-900 mb-4">Specifications</h4>
                     <div className="grid grid-cols-2 gap-4">
                       {Object.entries(service.specifications).map(([key, value]) => (
                         <div key={key} className="border-l-4 border-green-500 pl-4">
@@ -373,11 +373,11 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto"
           >
-            <h2 className="text-4xl lg:text-5xl font-light text-white mb-8">
+            <h2 className="text-4xl lg:text-5xl font-serif font-light text-white mb-8">
               Ready to Transform Your
               <span className="block font-bold text-green-400">Wine Bottles?</span>
             </h2>
-            <p className="text-xl text-gray-300 mb-12">
+            <p className="text-xl font-sans text-gray-300 mb-12">
               Contact our Adelaide team today for your personalized consultation. 
               We guarantee a 48-hour response time and competitive pricing.
             </p>

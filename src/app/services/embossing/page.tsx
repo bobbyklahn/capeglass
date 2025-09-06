@@ -56,11 +56,11 @@ export default function EmbossingPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-5xl lg:text-7xl font-light text-white mb-6">
+              <h1 className="text-5xl lg:text-7xl font-serif font-light text-white mb-6">
                 Glass
                 <span className="block font-bold text-green-400">Embossing</span>
               </h1>
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+              <p className="text-xl font-sans text-gray-300 mb-8 leading-relaxed">
                 Elevate your brand with precision embossing that transforms ordinary bottles 
                 into extraordinary brand statements. Our advanced molding techniques create 
                 raised designs that speak luxury and quality.
@@ -113,7 +113,7 @@ export default function EmbossingPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">
+            <h2 className="text-4xl lg:text-5xl font-serif font-light text-slate-900 mb-6">
               Why Choose <span className="font-bold text-green-600">Embossing?</span>
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
@@ -133,8 +133,8 @@ export default function EmbossingPage() {
                 className="text-center p-6"
               >
                 <div className="text-4xl mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{benefit.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{benefit.description}</p>
+                <h3 className="text-xl font-serif font-bold text-slate-900 mb-3">{benefit.title}</h3>
+                <p className="font-sans text-slate-600 leading-relaxed">{benefit.description}</p>
               </motion.div>
             ))}
           </div>

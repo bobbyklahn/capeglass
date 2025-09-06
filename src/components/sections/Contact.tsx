@@ -36,10 +36,10 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-6xl font-light text-white mb-6">
+          <h2 className="text-4xl lg:text-6xl font-serif font-light text-white mb-6">
             Get Your <span className="font-bold text-green-400">Quote</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl font-sans text-gray-300 max-w-3xl mx-auto">
             Ready to enhance your wine brand with premium bottles? 
             Contact our Adelaide team for swift 48-hour response and competitive pricing.
           </p>
@@ -52,7 +52,7 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold text-white mb-8">Contact Information</h3>
+            <h3 className="text-2xl font-serif font-bold text-white mb-8">Contact Information</h3>
             
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
@@ -62,8 +62,8 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold">Address</h4>
-                  <p className="text-gray-300">22 Priority Court<br />Edinburgh North, SA 5113<br />Adelaide, Australia</p>
+                  <h4 className="font-serif text-white font-semibold">Address</h4>
+                  <p className="font-sans text-gray-300">22 Priority Court<br />Edinburgh North, SA 5113<br />Adelaide, Australia</p>
                 </div>
               </div>
               
@@ -74,8 +74,8 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold">Phone</h4>
-                  <p className="text-gray-300">0434 719 886</p>
+                  <h4 className="font-serif text-white font-semibold">Phone</h4>
+                  <p className="font-sans text-gray-300">0434 719 886</p>
                 </div>
               </div>
               
@@ -86,15 +86,15 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold">Email</h4>
-                  <p className="text-gray-300">info@capeglass.com.au</p>
+                  <h4 className="font-serif text-white font-semibold">Email</h4>
+                  <p className="font-sans text-gray-300">info@capeglass.com.au</p>
                 </div>
               </div>
             </div>
             
             <div className="mt-12">
-              <h4 className="text-white font-semibold mb-4">Business Hours</h4>
-              <div className="space-y-2 text-gray-300">
+              <h4 className="font-serif text-white font-semibold mb-4">Business Hours</h4>
+              <div className="space-y-2 font-sans text-gray-300">
                 <div className="flex justify-between">
                   <span>Monday - Friday</span>
                   <span>8:00 AM - 6:00 PM</span>
@@ -121,7 +121,7 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-serif font-semibold text-slate-700 mb-2">
                     Full Name *
                   </label>
                   <input
@@ -135,7 +135,7 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-serif font-semibold text-slate-700 mb-2">
                     Email Address *
                   </label>
                   <input
@@ -151,7 +151,7 @@ export default function Contact() {
               </div>
               
               <div>
-                <label htmlFor="company" className="block text-sm font-semibold text-slate-700 mb-2">
+                <label htmlFor="company" className="block text-sm font-serif font-semibold text-slate-700 mb-2">
                   Company Name
                 </label>
                 <input
@@ -166,7 +166,7 @@ export default function Contact() {
               
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="service" className="block text-sm font-semibold text-slate-700 mb-2">
+                  <label htmlFor="service" className="block text-sm font-serif font-semibold text-slate-700 mb-2">
                     Service Interest
                   </label>
                   <select
@@ -185,7 +185,7 @@ export default function Contact() {
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="quantity" className="block text-sm font-semibold text-slate-700 mb-2">
+                  <label htmlFor="quantity" className="block text-sm font-serif font-semibold text-slate-700 mb-2">
                     Estimated Quantity
                   </label>
                   <input
@@ -201,7 +201,7 @@ export default function Contact() {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-serif font-semibold text-slate-700 mb-2">
                   Project Details
                 </label>
                 <textarea

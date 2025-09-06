@@ -26,14 +26,14 @@ export default function Hero() {
               priority
             />
             
-            <h1 className="text-5xl lg:text-7xl font-light text-white mb-6">
+            <h1 className="text-5xl lg:text-7xl font-serif font-light text-white mb-6">
               A bottle holds a drink.
               <span className="block font-bold bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
                 A Cape Glass holds brilliance
               </span>
             </h1>
             
-            <p className="text-xl lg:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-xl lg:text-2xl font-sans text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
               Leading importer of premium wine bottles for the Australian wine industry. 
               Sourcing exquisite, high-quality bottles globally with unparalleled service.
             </p>

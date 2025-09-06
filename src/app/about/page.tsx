@@ -66,11 +66,11 @@ export default function AboutPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-5xl lg:text-7xl font-light text-white mb-8">
+              <h1 className="text-5xl lg:text-7xl font-serif font-light text-white mb-8">
                 About
                 <span className="block font-bold text-green-400">Cape Glass</span>
               </h1>
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+              <p className="text-xl font-sans text-gray-300 mb-8 leading-relaxed">
                 Leading importer of premium wine bottles for the Australian wine industry. 
                 We specialize in sourcing exquisite, high-quality bottles globally while 
                 offering seamless supply chain solutions for wineries and related businesses.
@@ -133,12 +133,12 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl lg:text-5xl font-light text-slate-900 mb-8">
+              <h2 className="text-4xl lg:text-5xl font-serif font-light text-slate-900 mb-8">
                 Australian Wine Industry
                 <span className="block font-bold text-green-600">Excellence</span>
               </h2>
               
-              <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
+              <div className="space-y-6 text-lg font-sans text-slate-600 leading-relaxed">
                 <p>
                   Cape Glass Australia emerged from a clear vision: to provide Australian 
                   wine producers with unparalleled access to premium glass bottles while 
@@ -183,8 +183,8 @@ export default function AboutPage() {
                   viewport={{ once: true }}
                   className="absolute bottom-8 left-8 bg-white/90 backdrop-blur-sm p-6 rounded-xl max-w-sm"
                 >
-                  <h4 className="text-lg font-bold text-slate-900 mb-2">Adelaide Advantage</h4>
-                  <p className="text-slate-600 text-sm">
+                  <h4 className="text-lg font-serif font-bold text-slate-900 mb-2">Adelaide Advantage</h4>
+                  <p className="font-sans text-slate-600 text-sm">
                     Strategic location in Australia&apos;s wine capital provides unmatched 
                     industry insight and rapid response capabilities.
                   </p>
@@ -205,10 +205,10 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">
+            <h2 className="text-4xl lg:text-5xl font-serif font-light text-slate-900 mb-6">
               Our <span className="font-bold text-green-600">Values</span>
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <p className="text-xl font-sans text-slate-600 max-w-3xl mx-auto">
               Six core values drive everything we do at Cape Glass, ensuring exceptional 
               service and results for every client, every project, every time.
             </p>

@@ -46,10 +46,10 @@ export default function Services() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-6xl font-light text-slate-900 mb-6">
+          <h2 className="text-4xl lg:text-6xl font-serif font-light text-slate-900 mb-6">
             Decorative <span className="font-bold text-green-600">Services</span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl font-sans text-slate-600 max-w-3xl mx-auto">
             Transform your wine bottles with our comprehensive decorative services. 
             From screen printing to custom molding, we enhance your brand&apos;s appeal with precision and style.
           </p>
@@ -77,12 +77,12 @@ export default function Services() {
               </div>
               
               <div className="space-y-6">
-                <h3 className="text-3xl font-bold text-slate-900">{service.title}</h3>
-                <p className="text-lg text-slate-600 leading-relaxed">{service.description}</p>
+                <h3 className="text-3xl font-serif font-bold text-slate-900">{service.title}</h3>
+                <p className="text-lg font-sans text-slate-600 leading-relaxed">{service.description}</p>
                 
                 <ul className="grid grid-cols-2 gap-3">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-slate-700">
+                    <li key={idx} className="flex items-center font-sans text-slate-700">
                       <div className="w-2 h-2 bg-green-500 rounded-full mr-3" />
                       {feature}
                     </li>

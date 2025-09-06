@@ -60,10 +60,10 @@ export default function FeaturedProducts() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-6xl font-light text-slate-900 mb-6">
+          <h2 className="text-4xl lg:text-6xl font-serif font-light text-slate-900 mb-6">
             Featured <span className="font-bold text-green-600">Collection</span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl font-sans text-slate-600 max-w-3xl mx-auto">
             Discover our curated selection of premium glass bottles, each designed 
             to enhance your product&apos;s market presence and brand identity.
           </p>
@@ -92,12 +92,12 @@ export default function FeaturedProducts() {
               </div>
               
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">{product.name}</h3>
-                <p className="text-slate-600 mb-4">{product.description}</p>
+                <h3 className="text-2xl font-serif font-bold text-slate-900 mb-2">{product.name}</h3>
+                <p className="font-sans text-slate-600 mb-4">{product.description}</p>
                 
                 <ul className="space-y-2 mb-6">
                   {product.specifications.map((spec, idx) => (
-                    <li key={idx} className="flex items-center text-sm text-slate-500">
+                    <li key={idx} className="flex items-center text-sm font-sans text-slate-500">
                       <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2" />
                       {spec}
                     </li>

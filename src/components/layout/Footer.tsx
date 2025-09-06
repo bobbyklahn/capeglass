@@ -38,7 +38,7 @@ export default function Footer() {
               height={60}
               className="h-16 w-auto mb-6"
             />
-            <p className="text-gray-300 mb-6 leading-relaxed">
+            <p className="font-sans text-gray-300 mb-6 leading-relaxed">
               Elevating brands through precision glass bottle manufacturing. 
               Quality, craftsmanship, and innovation in every bottle.
             </p>
@@ -62,13 +62,13 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-6">Services</h4>
+            <h4 className="text-lg font-serif font-semibold mb-6">Services</h4>
             <ul className="space-y-3">
               {services.map((item) => (
                 <li key={item.name}>
                   <Link 
                     href={item.href} 
-                    className="text-gray-300 hover:text-green-400 transition-colors"
+                    className="font-sans text-gray-300 hover:text-green-400 transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -78,13 +78,13 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-6">Company</h4>
+            <h4 className="text-lg font-serif font-semibold mb-6">Company</h4>
             <ul className="space-y-3">
               {company.map((item) => (
                 <li key={item.name}>
                   <Link 
                     href={item.href} 
-                    className="text-gray-300 hover:text-green-400 transition-colors"
+                    className="font-sans text-gray-300 hover:text-green-400 transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -94,13 +94,13 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-6">Support</h4>
+            <h4 className="text-lg font-serif font-semibold mb-6">Support</h4>
             <ul className="space-y-3">
               {support.map((item) => (
                 <li key={item.name}>
                   <Link 
                     href={item.href} 
-                    className="text-gray-300 hover:text-green-400 transition-colors"
+                    className="font-sans text-gray-300 hover:text-green-400 transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -112,17 +112,17 @@ export default function Footer() {
         
         <div className="border-t border-slate-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
+            <p className="font-sans text-gray-400 text-sm">
               © 2024 Cape Glass. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/privacy" className="text-gray-400 hover:text-green-400 text-sm transition-colors">
+              <Link href="/privacy" className="font-sans text-gray-400 hover:text-green-400 text-sm transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-gray-400 hover:text-green-400 text-sm transition-colors">
+              <Link href="/terms" className="font-sans text-gray-400 hover:text-green-400 text-sm transition-colors">
                 Terms of Service
               </Link>
-              <Link href="/cookies" className="text-gray-400 hover:text-green-400 text-sm transition-colors">
+              <Link href="/cookies" className="font-sans text-gray-400 hover:text-green-400 text-sm transition-colors">
                 Cookie Policy
               </Link>
             </div>

@@ -55,11 +55,11 @@ export default function ScreenPrintingPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-5xl lg:text-7xl font-light text-white mb-8">
+              <h1 className="text-5xl lg:text-7xl font-serif font-light text-white mb-8">
                 Screen
                 <span className="block font-bold text-green-400">Printing</span>
               </h1>
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+              <p className="text-xl font-sans text-gray-300 mb-8 leading-relaxed">
                 Transform your wine bottles with vibrant, durable screen printing that withstands 
                 commercial use and creates lasting brand impressions. Our specialized inks and 
                 techniques ensure your designs stay brilliant for years.
@@ -113,10 +113,10 @@ export default function ScreenPrintingPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">
+            <h2 className="text-4xl lg:text-5xl font-serif font-light text-slate-900 mb-6">
               Our <span className="font-bold text-green-600">Process</span>
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <p className="text-xl font-sans text-slate-600 max-w-3xl mx-auto">
               From concept to completion, our proven 4-step process ensures exceptional 
               results for every wine bottle screen printing project.
             </p>
@@ -140,8 +140,8 @@ export default function ScreenPrintingPage() {
                     {step.step}
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{step.description}</p>
+                <h3 className="text-xl font-serif font-bold text-slate-900 mb-3">{step.title}</h3>
+                <p className="font-sans text-slate-600 leading-relaxed">{step.description}</p>
               </motion.div>
             ))}
           </div>
@@ -158,7 +158,7 @@ export default function ScreenPrintingPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">
+            <h2 className="text-4xl lg:text-5xl font-serif font-light text-slate-900 mb-6">
               Color <span className="font-bold text-green-600">Options</span>
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
@@ -188,9 +188,9 @@ export default function ScreenPrintingPage() {
                     </div>
                   )}
                 </div>
-                <p className="text-sm font-medium text-slate-700">{color.name}</p>
+                <p className="text-sm font-sans font-medium text-slate-700">{color.name}</p>
                 {color.popular && (
-                  <p className="text-xs text-green-600 font-semibold">Popular</p>
+                  <p className="text-xs font-sans text-green-600 font-semibold">Popular</p>
                 )}
               </motion.div>
             ))}
@@ -203,7 +203,7 @@ export default function ScreenPrintingPage() {
             viewport={{ once: true }}
             className="text-center mt-12"
           >
-            <p className="text-slate-600 mb-6">
+            <p className="font-sans text-slate-600 mb-6">
               Need a custom color? We can match any Pantone color or create bespoke formulations.
             </p>
             <Button 
