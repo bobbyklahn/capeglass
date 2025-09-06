@@ -468,8 +468,8 @@ export default function CustomBottlesPage() {
               <div className="text-4xl mb-4">🏆</div>
               <h3 className="text-xl font-bold text-slate-900 mb-4">Boutique Winery</h3>
               <p className="text-slate-600 mb-4">
-                "Cape Glass helped us create a unique bottle shape that perfectly 
-                represents our heritage brand. The 1,000-unit minimum made it affordable."
+                &quot;Cape Glass helped us create a unique bottle shape that perfectly 
+                represents our heritage brand. The 1,000-unit minimum made it affordable.&quot;
               </p>
               <div className="text-green-600 font-semibold">Barossa Valley Estate</div>
             </motion.div>
@@ -484,8 +484,8 @@ export default function CustomBottlesPage() {
               <div className="text-4xl mb-4">🎯</div>
               <h3 className="text-xl font-bold text-slate-900 mb-4">Premium Brand</h3>
               <p className="text-slate-600 mb-4">
-                "The custom embossed elements and unique color gave our reserve 
-                collection the premium feel we needed. Outstanding quality."
+                &quot;The custom embossed elements and unique color gave our reserve 
+                collection the premium feel we needed. Outstanding quality.&quot;
               </p>
               <div className="text-green-600 font-semibold">Hunter Valley Reserve</div>
             </motion.div>
@@ -500,8 +500,8 @@ export default function CustomBottlesPage() {
               <div className="text-4xl mb-4">⚡</div>
               <h3 className="text-xl font-bold text-slate-900 mb-4">Fast Growth</h3>
               <p className="text-slate-600 mb-4">
-                "Fast turnaround and scalable production helped us launch our 
-                new wine line on schedule. Great partnership."
+                &quot;Fast turnaround and scalable production helped us launch our 
+                new wine line on schedule. Great partnership.&quot;
               </p>
               <div className="text-green-600 font-semibold">Yarra Valley Wines</div>
             </motion.div>

@@ -117,7 +117,7 @@ export default function EmbossingPage() {
               Why Choose <span className="font-bold text-green-600">Embossing?</span>
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Embossing isn't just decoration—it's a strategic brand investment that 
+              Embossing isn&apos;t just decoration—it&apos;s a strategic brand investment that 
               communicates premium quality and attention to detail.
             </p>
           </motion.div>
@@ -161,7 +161,7 @@ export default function EmbossingPage() {
               </p>
 
               <div className="grid grid-cols-2 gap-6 mb-8">
-                {specifications.map((spec, index) => (
+                {specifications.map((spec) => (
                   <div key={spec.label} className="border-l-4 border-green-500 pl-4">
                     <div className="text-sm text-slate-500 font-medium">{spec.label}</div>
                     <div className="text-lg font-bold text-slate-900">{spec.value}</div>

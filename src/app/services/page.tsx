@@ -256,7 +256,7 @@ export default function ServicesPage() {
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               Comprehensive decorative and manufacturing services designed specifically 
-              for the Australian wine industry's demanding quality standards.
+              for the Australian wine industry&apos;s demanding quality standards.
             </p>
           </motion.div>
 

@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 
@@ -156,7 +155,7 @@ export default function ContactPage() {
             <p className="text-xl lg:text-2xl text-gray-300 mb-12 leading-relaxed">
               Ready to enhance your wine brand with premium bottles? Our Adelaide team 
               provides swift 48-hour response times and competitive pricing for 
-              Australia's wine industry.
+              Australia&apos;s wine industry.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -471,7 +470,7 @@ export default function ContactPage() {
               <div className="bg-white rounded-2xl p-8 shadow-lg">
                 <h3 className="text-2xl font-bold text-slate-900 mb-6">Service Quick Reference</h3>
                 <div className="space-y-4">
-                  {serviceInquiries.slice(0, 4).map((service, index) => (
+                  {serviceInquiries.slice(0, 4).map((service) => (
                     <div key={service.service} className="border-l-4 border-green-500 pl-4">
                       <div className="flex items-center mb-1">
                         <span className="text-lg mr-2">{service.icon}</span>
@@ -506,7 +505,7 @@ export default function ContactPage() {
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               Quick answers to common questions from Australian wine producers. 
-              Don't see your question? Contact us directly.
+              Don&apos;t see your question? Contact us directly.
             </p>
           </motion.div>
 

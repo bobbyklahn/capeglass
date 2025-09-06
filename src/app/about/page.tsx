@@ -112,7 +112,7 @@ export default function AboutPage() {
                   <div className="bg-white/90 backdrop-blur-sm p-6 rounded-xl">
                     <h3 className="text-xl font-bold text-slate-900 mb-2">Our Mission</h3>
                     <p className="text-slate-600">
-                      To enhance your product's appeal and optimize production costs 
+                      To enhance your product&apos;s appeal and optimize production costs 
                       through premium glass solutions.
                     </p>
                   </div>
@@ -142,11 +142,11 @@ export default function AboutPage() {
                 <p>
                   Cape Glass Australia emerged from a clear vision: to provide Australian 
                   wine producers with unparalleled access to premium glass bottles while 
-                  solving the industry's most pressing supply chain challenges.
+                  solving the industry&apos;s most pressing supply chain challenges.
                 </p>
                 
                 <p>
-                  Based in Adelaide, the heart of Australia's wine country, we understand 
+                  Based in Adelaide, the heart of Australia&apos;s wine country, we understand 
                   the unique needs of local wine producers. From boutique family wineries 
                   to large-scale commercial operations, we deliver tailored solutions that 
                   enhance product appeal while optimizing costs.
@@ -155,7 +155,7 @@ export default function AboutPage() {
                 <p>
                   Our strategic approach combines global sourcing expertise with local 
                   market knowledge, ensuring every client receives the perfect bottles 
-                  for their wine's character and market positioning.
+                  for their wine&apos;s character and market positioning.
                 </p>
               </div>
             </motion.div>
@@ -185,7 +185,7 @@ export default function AboutPage() {
                 >
                   <h4 className="text-lg font-bold text-slate-900 mb-2">Adelaide Advantage</h4>
                   <p className="text-slate-600 text-sm">
-                    Strategic location in Australia's wine capital provides unmatched 
+                    Strategic location in Australia&apos;s wine capital provides unmatched 
                     industry insight and rapid response capabilities.
                   </p>
                 </motion.div>
@@ -459,7 +459,7 @@ export default function AboutPage() {
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               From startup to industry leader, Cape Glass has consistently evolved 
-              to meet the changing needs of Australia's wine industry.
+              to meet the changing needs of Australia&apos;s wine industry.
             </p>
           </motion.div>
 
@@ -523,7 +523,7 @@ export default function AboutPage() {
                     <p className="leading-relaxed">
                       Located at 22 Priority Court, Edinburgh North, SA 5113, our Adelaide facility 
                       provides strategic warehousing and showroom services in the heart of 
-                      Australia's wine country.
+                      Australia&apos;s wine country.
                     </p>
                   </div>
                 </div>

@@ -357,7 +357,7 @@ export default function ScreenPrintingPage() {
               <div className="text-4xl mb-4">🎨</div>
               <h3 className="text-xl font-bold text-slate-900 mb-4">Artistic Designs</h3>
               <p className="text-slate-600 mb-4">
-                Complex artistic elements and patterns that showcase your wine's unique character and heritage.
+                Complex artistic elements and patterns that showcase your wine&apos;s unique character and heritage.
               </p>
               <ul className="text-sm text-slate-500 space-y-1">
                 <li>• Decorative borders</li>
@@ -405,7 +405,7 @@ export default function ScreenPrintingPage() {
               <span className="block font-bold text-green-400">Design to Life?</span>
             </h2>
             <p className="text-xl text-gray-300 mb-12">
-              Contact our screen printing specialists today. We'll help optimize your design 
+              Contact our screen printing specialists today. We&apos;ll help optimize your design 
               and provide samples to ensure perfect results for your wine bottles.
             </p>
             

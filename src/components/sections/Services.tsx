@@ -51,7 +51,7 @@ export default function Services() {
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Transform your wine bottles with our comprehensive decorative services. 
-            From screen printing to custom molding, we enhance your brand's appeal with precision and style.
+            From screen printing to custom molding, we enhance your brand&apos;s appeal with precision and style.
           </p>
         </motion.div>
 
