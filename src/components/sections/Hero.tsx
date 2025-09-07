@@ -17,14 +17,6 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="text-center lg:text-left"
           >
-            <Image
-              src="/images/logos/logo.png"
-              alt="Cape Glass"
-              width={300}
-              height={80}
-              className="mx-auto lg:mx-0 mb-8"
-              priority
-            />
             
             <h1 className="text-5xl lg:text-7xl font-serif font-light text-white mb-6">
               A bottle holds a drink.
@@ -60,8 +52,8 @@ export default function Hero() {
           >
             <div className="relative w-full h-96 lg:h-[600px]">
               <Image
-                src="/images/bottles/0172.png"
-                alt="Premium Glass Bottle"
+                src="/images/capecover.jpg"
+                alt="Cape Glass Cover"
                 fill
                 className="object-contain"
                 priority
