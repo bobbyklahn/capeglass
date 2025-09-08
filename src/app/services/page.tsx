@@ -10,7 +10,7 @@ const services = [
     id: 'screen-printing',
     title: 'Screen Printing',
     description: 'High-quality, durable graphics applied directly to glass surfaces using specialized inks that create vibrant, long-lasting designs perfect for wine bottles.',
-    image: '/images/services/customize.jpg',
+    image: '/images/services/furnace.jpg',
     icon: '🎨',
     features: [
       'Vibrant, fade-resistant colors',
@@ -98,7 +98,7 @@ const services = [
     id: 'large-format',
     title: 'Large Format Bottles',
     description: 'Specialized large format wine bottles from 3L to 30L, perfect for celebrations, gifts, and premium presentations with independent development capabilities.',
-    image: '/images/services/largeformat.jpg',
+    image: '/images/services/premium bottle.jpg',
     icon: '🍾',
     features: [
       'Sizes from 3L to 30L available',

@@ -9,21 +9,21 @@ const services = [
     id: 'screen-printing',
     title: 'Screen Printing',
     description: 'High-quality, durable graphics applied directly to glass surfaces using specialized inks that create vibrant, long-lasting designs for wine bottles.',
-    image: '/images/services/customize.jpg',
+    image: '/images/services/uv.png',
     features: ['Vibrant colors', 'Durable finish', 'Wine industry focus', 'Custom designs']
   },
   {
     id: 'embossing',
     title: 'Embossing & Debossing',
     description: 'Raised or recessed designs molded directly into the glass surface, creating sophisticated tactile experiences that elevate wine brand presence.',
-    image: '/images/services/embossing.png',
+    image: '/images/services/embossing2.png',
     features: ['Permanent raised/recessed designs', 'Premium tactile feel', 'Brand distinction', 'Custom molding']
   },
   {
     id: 'decals',
     title: 'Decal Application',
     description: 'Professional decal application services providing precise, detailed graphics with excellent adhesion and resistance to environmental factors.',
-    image: '/images/services/artofprecision.jpg',
+    image: '/images/services/furnace.jpg',
     features: ['Precise application', 'Weather resistance', 'Complex graphics', 'Professional finish']
   },
   {
