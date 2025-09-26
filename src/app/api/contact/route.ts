@@ -114,7 +114,7 @@ export async function POST(request: NextRequest) {
       to: ['info@capeglass.com.au'],
       subject: `New Contact Form Submission - ${name} (${company || 'Individual'})`,
       html: emailHtml,
-      reply_to: email
+      replyTo: email
     })
 
     console.log('Email sent successfully:', emailResponse)
