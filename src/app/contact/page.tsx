@@ -121,12 +121,67 @@ export default function ContactPage() {
   })
 
   const [activeQuestion, setActiveQuestion] = useState<number | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null
+    message: string
+  }>({ type: null, message: '' })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    // Here you would typically send the data to your backend
-    alert('Thank you for your inquiry! We will respond within 48 hours.')
+    
+    // Basic validation
+    if (!formData.name || !formData.email) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Please fill in all required fields (Name and Email).'
+      })
+      return
+    }
+
+    setIsSubmitting(true)
+    setSubmitStatus({ type: null, message: '' })
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: 'success',
+          message: data.message || 'Thank you for your inquiry! We will respond within 48 hours.'
+        })
+        // Reset form on success
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          winery: '',
+          serviceType: '',
+          quantity: '',
+          timeline: '',
+          message: ''
+        })
+      } else {
+        throw new Error(data.error || 'Something went wrong')
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmitStatus({
+        type: 'error',
+        message: error instanceof Error ? error.message : 'Failed to send message. Please try again or contact us directly at info@capeglass.com.au'
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -379,13 +434,30 @@ export default function ContactPage() {
                   />
                 </div>
 
+                {/* Status Message */}
+                {submitStatus.type && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`p-4 rounded-lg text-center ${
+                      submitStatus.type === 'success' 
+                        ? 'bg-green-50 text-green-800 border border-green-200' 
+                        : 'bg-red-50 text-red-800 border border-red-200'
+                    }`}
+                  >
+                    <p className="font-medium">{submitStatus.message}</p>
+                  </motion.div>
+                )}
+
                 <Button 
                   type="submit"
                   variant="primary"
                   size="lg"
+                  loading={isSubmitting}
+                  disabled={isSubmitting}
                   className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
                 >
-                  Send Message (48hr Response)
+                  {isSubmitting ? 'Sending Message...' : 'Send Message (48hr Response)'}
                 </Button>
 
                 <p className="text-xs text-slate-500 text-center">

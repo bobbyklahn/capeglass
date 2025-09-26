@@ -10,48 +10,48 @@ const featuredProducts = [
     name: 'Classic Bordeaux',
     image: '/images/bottles/0172.png',
     description: 'Timeless elegance with clean lines',
-    specifications: ['750ml capacity', 'Premium glass weight', 'Standard cork finish']
+    specifications: ['750&nbsp;ml capacity', 'Premium glass weight', 'Standard cork finish']
   },
   {
     id: 'CG0386',
     name: 'Burgundy Elite',
     image: '/images/bottles/0386.png',
     description: 'Distinguished profile for premium brands',
-    specifications: ['750ml capacity', 'Heavy base design', 'Premium finish']
+    specifications: ['750&nbsp;ml capacity', 'Heavy base design', 'Premium finish']
   },
   {
     id: 'CG0504',
     name: 'Contemporary Curve',
     image: '/images/bottles/0504.png',
     description: 'Modern design with sophisticated appeal',
-    specifications: ['750ml capacity', 'Curved shoulders', 'Elegant proportions']
+    specifications: ['750&nbsp;ml capacity', 'Curved shoulders', 'Elegant proportions']
   },
   {
     id: 'CG0396',
     name: 'Heritage Collection',
     image: '/images/bottles/0396.png',
     description: 'Traditional craftsmanship meets modern quality',
-    specifications: ['750ml capacity', 'Classic proportions', 'Heritage design']
+    specifications: ['750&nbsp;ml capacity', 'Classic proportions', 'Heritage design']
   },
   {
     id: 'CG0614',
     name: 'Premium Reserve',
     image: '/images/bottles/0614.png',
     description: 'Ultra-premium bottle for exclusive brands',
-    specifications: ['750ml capacity', 'Extra heavy glass', 'Luxury finish']
+    specifications: ['750&nbsp;ml capacity', 'Extra heavy glass', 'Luxury finish']
   },
   {
     id: 'CG0582',
     name: 'Artisan Series',
     image: '/images/bottles/0582.png',
     description: 'Handcrafted aesthetic with modern precision',
-    specifications: ['750ml capacity', 'Artisan design', 'Unique silhouette']
+    specifications: ['750&nbsp;ml capacity', 'Artisan design', 'Unique silhouette']
   }
 ]
 
 export default function FeaturedProducts() {
   return (
-    <section className="py-20 bg-slate-50">
+    <section id="products" className="py-20 bg-slate-50">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -60,7 +60,7 @@ export default function FeaturedProducts() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-6xl font-serif font-light text-slate-900 mb-6">
+          <h2 className="text-4xl lg:text-6xl font-serif font-light text-slate-900 mb-6 scroll-mt-24">
             Featured <span className="font-bold text-green-600">Collection</span>
           </h2>
           <p className="text-xl font-sans text-slate-600 max-w-3xl mx-auto">
@@ -77,7 +77,7 @@ export default function FeaturedProducts() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300"
+              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group border border-slate-100"
             >
               <div className="relative h-80 bg-gradient-to-br from-slate-100 to-slate-200">
                 <Image
@@ -85,6 +85,7 @@ export default function FeaturedProducts() {
                   alt={product.name}
                   fill
                   className="object-contain p-8 transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
                   {product.id}
@@ -109,13 +110,13 @@ export default function FeaturedProducts() {
                     variant="primary"
                     className="flex-1 bg-slate-900 hover:bg-slate-800"
                   >
-                    View Details
+                    View Bottle Details
                   </Button>
                   <Button 
                     variant="outline"
                     className="border-green-600 text-green-600 hover:bg-green-600 hover:text-white"
                   >
-                    Quote
+                    Get Quote
                   </Button>
                 </div>
               </div>

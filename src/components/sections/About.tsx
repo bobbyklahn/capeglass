@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/Button'
 
 export default function About() {
   return (
-    <section className="py-20 bg-white">
+    <section id="about" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -15,7 +15,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl lg:text-6xl font-serif font-light text-slate-900 mb-8">
+            <h2 className="text-4xl lg:text-6xl font-serif font-light text-slate-900 mb-8 scroll-mt-24">
               Australian Wine Industry
               <span className="block font-bold text-green-600">Excellence</span>
             </h2>
@@ -46,11 +46,11 @@ export default function About() {
                 <div className="font-sans text-slate-600">Response Time</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">30,000</div>
+                <div className="text-3xl font-bold text-green-600 mb-2 tabular-nums">30,000</div>
                 <div className="font-sans text-slate-600">Tons Annual Output</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">500+</div>
+                <div className="text-3xl font-bold text-green-600 mb-2 tabular-nums">500+</div>
                 <div className="font-sans text-slate-600">Custom Batch Min</div>
               </div>
             </div>

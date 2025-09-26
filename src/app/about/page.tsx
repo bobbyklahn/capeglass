@@ -37,14 +37,6 @@ const companyValues = [
   }
 ]
 
-const milestones = [
-  { year: '2020', event: 'Cape Glass Australia Founded', description: 'Established with vision to serve Australian wine industry' },
-  { year: '2021', event: 'Adelaide Facility Opened', description: 'Strategic warehousing and showroom launched in Adelaide' },
-  { year: '2022', event: 'Manufacturing Partnership', description: 'Exclusive partnership with Jiangsu facility established' },
-  { year: '2023', event: '500+ Winery Clients', description: 'Serving boutique to large-scale wine producers across Australia' },
-  { year: '2024', event: 'Custom Bottle Innovation', description: 'Launched flexible small-batch custom bottle service' },
-  { year: '2025', event: 'Sustainability Leadership', description: 'Leading sustainable glass sourcing in Australian market' }
-]
 
 const manufacturingStats = [
   { stat: '20,000', unit: 'sqm facility', description: 'Advanced manufacturing facility in Jiangsu, China' },
@@ -444,57 +436,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Company Timeline */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">
-              Our <span className="font-bold text-green-600">Journey</span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              From startup to industry leader, Cape Glass has consistently evolved 
-              to meet the changing needs of Australia&apos;s wine industry.
-            </p>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-green-200 hidden md:block" />
-              
-              <div className="space-y-12">
-                {milestones.map((milestone, index) => (
-                  <motion.div
-                    key={milestone.year}
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="relative flex items-start"
-                  >
-                    <div className="hidden md:block absolute left-6 w-4 h-4 bg-green-500 rounded-full border-4 border-white shadow-lg" />
-                    <div className="md:ml-16 bg-slate-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
-                      <div className="flex items-center mb-3">
-                        <div className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-bold mr-4">
-                          {milestone.year}
-                        </div>
-                        <h3 className="text-xl font-bold text-slate-900">{milestone.event}</h3>
-                      </div>
-                      <p className="text-slate-600">{milestone.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Location & Contact */}
       <section className="py-20 bg-slate-900">

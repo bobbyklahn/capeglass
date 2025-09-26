@@ -37,7 +37,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="font-sans text-slate-700 hover:text-green-600 font-medium transition-colors duration-200"
+                className="font-sans text-slate-700 hover:text-green-600 font-medium transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2 rounded-md px-2 py-1"
               >
                 {item.name}
               </Link>
@@ -52,7 +52,8 @@ export default function Header() {
           
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-slate-700"
+            className="md:hidden text-slate-700 p-3 min-h-[44px] min-w-[44px] flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2 rounded-md touch-manipulation"
+            aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
@@ -71,7 +72,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="block py-2 font-sans text-slate-700 hover:text-green-600 font-medium transition-colors duration-200"
+                className="block py-2 font-sans text-slate-700 hover:text-green-600 font-medium transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2 rounded-md px-2"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}

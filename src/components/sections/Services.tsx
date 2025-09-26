@@ -37,7 +37,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="py-20 bg-white">
+    <section id="services" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -46,7 +46,7 @@ export default function Services() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-6xl font-serif font-light text-slate-900 mb-6">
+          <h2 className="text-4xl lg:text-6xl font-serif font-light text-slate-900 mb-6 scroll-mt-24">
             Decorative <span className="font-bold text-green-600">Services</span>
           </h2>
           <p className="text-xl font-sans text-slate-600 max-w-3xl mx-auto">
@@ -72,6 +72,8 @@ export default function Services() {
                   width={600}
                   height={400}
                   className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               </div>
@@ -93,7 +95,7 @@ export default function Services() {
                   variant="outline"
                   className="border-green-600 text-green-600 hover:bg-green-600 hover:text-white"
                 >
-                  Learn More
+                  View Service Details
                 </Button>
               </div>
             </motion.div>
