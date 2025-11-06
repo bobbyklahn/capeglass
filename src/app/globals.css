@@ -11,6 +11,18 @@
   --font-sans: var(--font-source-sans);
   --font-serif: var(--font-playfair);
   --font-mono: var(--font-libre-baskerville);
+
+  /* Wine color palette */
+  --color-wine-50: #FDF2F4;
+  --color-wine-100: #FCE7EA;
+  --color-wine-200: #F9CFD6;
+  --color-wine-300: #F4A7B4;
+  --color-wine-400: #EC778D;
+  --color-wine-500: #E04968;
+  --color-wine-600: #CB2E52;
+  --color-wine-700: #6B0F1A;
+  --color-wine-800: #5A0D16;
+  --color-wine-900: #4C0C13;
 }
 
 @media (prefers-color-scheme: dark) {
