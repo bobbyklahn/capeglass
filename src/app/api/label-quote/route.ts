@@ -1,10 +1,9 @@
 import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 export async function POST(request: NextRequest) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY)
     const formData = await request.formData()
 
     // Extract all form fields
@@ -82,15 +81,15 @@ export async function POST(request: NextRequest) {
         <head>
           <style>
             body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-            .header { background: #6B0F1A; color: white; padding: 20px; text-align: center; }
+            .header { background: #1e4d3a; color: white; padding: 20px; text-align: center; }
             .content { padding: 20px; }
             .section { margin-bottom: 25px; }
             .section-title {
-              color: #6B0F1A;
+              color: #1e4d3a;
               font-size: 18px;
               font-weight: bold;
               margin-bottom: 10px;
-              border-bottom: 2px solid #6B0F1A;
+              border-bottom: 2px solid #1e4d3a;
               padding-bottom: 5px;
             }
             .field { margin: 8px 0; }
@@ -212,9 +211,9 @@ export async function POST(request: NextRequest) {
     // Send email to business
     const emailResponse = await resend.emails.send({
       from: 'Cape Glass Label Quotes <noreply@capeglass.com.au>',
-      to: ['bobby@capeglass.com.au', 'bobbyleo@me.com'],
+      to: ['jose.zzh@outlook.com.au'],
       replyTo: data.email,
-      subject: `🍷 New Label Quote: ${data.companyName} - ${data.quantity} labels`,
+      subject: `New label quote: ${data.companyName} - ${data.quantity} labels`,
       html: emailHtml,
       attachments: attachments.length > 0 ? attachments : undefined
     })
@@ -232,7 +231,7 @@ export async function POST(request: NextRequest) {
           <head>
             <style>
               body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-              .header { background: #6B0F1A; color: white; padding: 20px; text-align: center; }
+              .header { background: #1e4d3a; color: white; padding: 20px; text-align: center; }
               .content { padding: 20px; max-width: 600px; }
             </style>
           </head>

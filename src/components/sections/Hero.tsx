@@ -1,83 +1,90 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion, useReducedMotion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 
 export default function Hero() {
-  const shouldReduceMotion = useReducedMotion()
-  
+  const reduce = useReducedMotion()
+  const ease = [0.16, 1, 0.3, 1] as const
+
   return (
-    <section className="relative py-20 lg:py-32 flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700">
-      <div className="absolute inset-0 bg-black/20" />
-      
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section className="relative min-h-[100dvh] flex items-center overflow-hidden bg-paper pt-24 pb-16">
+      <div className="mx-auto max-w-[1400px] w-full px-6">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          {/* Copy */}
           <motion.div
-            initial={shouldReduceMotion ? {} : { opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.8 }}
-            className="text-center lg:text-left"
+            initial={reduce ? false : { opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease }}
+            className="lg:col-span-7"
           >
-            
-            <h1 className="text-5xl lg:text-7xl font-serif font-light text-white mb-6">
-              A bottle holds a drink.
-              <span className="block font-bold bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
-                A Cape Glass holds brilliance
-              </span>
+            <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.18em] text-green-700">
+              <span className="h-1.5 w-1.5 rounded-full bg-green-700" />
+              Wine-bottle glassworks · Adelaide
+            </span>
+
+            <h1 className="mt-6 font-display text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.02] tracking-[-0.03em] text-ink text-balance">
+              The bottle you want,{' '}
+              <span className="text-green-700">from 500 units.</span>
             </h1>
-            
-            <p className="text-xl lg:text-2xl font-sans text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
-              Leading importer of premium wine bottles for the Australian wine industry. 
-              Sourcing exquisite, high-quality bottles globally with unparalleled service.
+
+            <p className="mt-6 max-w-xl text-lg text-stone-600 leading-relaxed">
+              Custom moulds, stock shapes and large formats to 30L. Made in our own
+              factory, warehoused in Adelaide, with no oversized minimums.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button 
-                variant="primary" 
-                size="lg"
-                className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
-              >
-                Explore Products
-              </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-slate-900">
-                Get Quote
-              </Button>
+
+            <div className="mt-9 flex flex-col sm:flex-row gap-3">
+              <Link href="/contact">
+                <Button variant="primary" size="lg" className="w-full sm:w-auto">
+                  Request a quote
+                </Button>
+              </Link>
+              <Link href="/products">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                  See the bottles
+                </Button>
+              </Link>
             </div>
           </motion.div>
-          
+
+          {/* Visual */}
           <motion.div
-            initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.8 }}
+            initial={reduce ? false : { opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={shouldReduceMotion ? { duration: 0 } : { duration: 1, delay: 0.2 }}
-            className="relative"
+            transition={{ duration: 0.9, ease, delay: 0.1 }}
+            className="lg:col-span-5"
           >
-            <div className="relative w-full h-96 lg:h-[600px]">
-              <Image
-                src="/images/capecover.jpg"
-                alt="Premium wine bottles showcasing Cape Glass Australia's elegant glass collection against a sophisticated backdrop"
-                fill
-                className="object-contain"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/10 rounded-lg" />
+            <div className="grain relative aspect-[4/5] w-full max-w-md mx-auto rounded-[28px] overflow-hidden bg-gradient-to-b from-green-800 to-green-900 shadow-soft">
+              <div className="absolute inset-0 flex items-center justify-center p-8">
+                <Image
+                  src="/images/bottles/0386.png"
+                  alt="A heavy-base Burgundy wine bottle made by Cape Glass"
+                  width={360}
+                  height={620}
+                  className="h-full w-auto object-contain drop-shadow-2xl"
+                  priority
+                />
+              </div>
+
+              {/* Precision spec chip */}
+              <motion.div
+                initial={reduce ? false : { opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease, delay: 0.45 }}
+                className="absolute bottom-5 left-5 right-5 rounded-2xl bg-paper/95 backdrop-blur px-5 py-4"
+              >
+                <p className="text-[11px] font-mono uppercase tracking-[0.16em] text-stone-500">
+                  Custom mould · CG0386
+                </p>
+                <p className="mt-1 font-mono text-sm text-ink tabular-nums">
+                  330 mm H · 84 mm Ø · 840 g
+                </p>
+              </motion.div>
             </div>
           </motion.div>
         </div>
-      </div>
-      
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <motion.div
-          animate={shouldReduceMotion ? {} : { y: [0, -10, 0] }}
-          transition={shouldReduceMotion ? { duration: 0 } : { duration: 2, repeat: Infinity }}
-          className="text-white/60"
-          role="img"
-          aria-label="Scroll down to explore"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </motion.div>
       </div>
     </section>
   )

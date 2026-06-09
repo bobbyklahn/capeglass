@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 export async function POST(request: NextRequest) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY)
     const body = await request.json()
     
     // Validate required fields
@@ -29,7 +28,7 @@ export async function POST(request: NextRequest) {
     // Create email content
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #16a34a; border-bottom: 2px solid #16a34a; padding-bottom: 10px;">
+        <h2 style="color: #1e4d3a; border-bottom: 2px solid #1e4d3a; padding-bottom: 10px;">
           New Contact Form Submission - Cape Glass
         </h2>
         
@@ -81,7 +80,7 @@ export async function POST(request: NextRequest) {
         ${message ? `
         <div style="margin: 20px 0;">
           <h3 style="color: #334155; margin-bottom: 15px;">Message</h3>
-          <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border-left: 4px solid #16a34a;">
+          <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border-left: 4px solid #1e4d3a;">
             <p style="margin: 0; color: #334155; line-height: 1.6;">${message.replace(/\n/g, '<br>')}</p>
           </div>
         </div>` : ''}
@@ -111,7 +110,7 @@ export async function POST(request: NextRequest) {
     // Send email using Resend
     const emailResponse = await resend.emails.send({
       from: 'Cape Glass Website <noreply@capeglass.com.au>',
-      to: ['info@capeglass.com.au'],
+      to: ['jose.zzh@outlook.com.au'],
       subject: `New Contact Form Submission - ${name} (${company || 'Individual'})`,
       html: emailHtml,
       replyTo: email
@@ -132,7 +131,7 @@ export async function POST(request: NextRequest) {
     
     return NextResponse.json(
       { 
-        error: 'Failed to send message. Please try again or contact us directly at info@capeglass.com.au',
+        error: 'Failed to send message. Please try again or contact us directly at jose.zzh@outlook.com.au',
         success: false 
       },
       { status: 500 }

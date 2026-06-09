@@ -1,34 +1,43 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Source_Sans_3, Libre_Baskerville } from "next/font/google";
+import { Bricolage_Grotesque, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-const playfairDisplay = Playfair_Display({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-playfair",
-  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-bricolage",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const sourceSansPro = Source_Sans_3({
-  subsets: ["latin"],
-  display: "swap", 
-  variable: "--font-source-sans",
-  weight: ["300", "400", "600", "700"],
-});
-
-const libreBaskerville = Libre_Baskerville({
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-libre-baskerville", 
-  weight: ["400", "700"],
+  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jetbrains",
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "Cape Glass Australia - Premium Wine Bottles | Adelaide",
-  description: "Leading importer of premium wine bottles for the Australian wine industry. 48-hour response, competitive pricing, Adelaide showroom. Screen printing, embossing, decals.",
-  keywords: "wine bottles, glass bottles, Australian wine industry, Adelaide, premium bottles, screen printing, embossing, decals, custom bottles, large format bottles, magnum bottles",
+  title: "Cape Glass - Custom Wine Bottles, Factory-Direct | Adelaide",
+  description:
+    "Custom and stock wine bottles for Australian wineries, made in our own glassworks. Runs from 500 units, custom moulds, large formats to 30L, decoration and labels. Adelaide-warehoused.",
+  keywords:
+    "custom wine bottles, low minimum order wine bottles, factory direct glass, wine bottle manufacturer Australia, Adelaide wine bottles, large format bottles, magnum, embossing, screen printing, wine label printing",
+  openGraph: {
+    title: "Cape Glass - Custom Wine Bottles, Factory-Direct",
+    description:
+      "The bottle you want, from 500 units. Custom moulds, large formats, decoration and labels, made in our own glassworks and warehoused in Adelaide.",
+    type: "website",
+    locale: "en_AU",
+  },
 };
 
 export default function RootLayout({
@@ -37,37 +46,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-AU">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link 
-          rel="preload" 
-          href="https://fonts.gstatic.com/s/sourcecodepro/v22/HI_SiYsKILxRpg3hIP6sJ7fM7PqlPevW.woff2" 
-          as="font" 
-          type="font/woff2" 
-          crossOrigin="anonymous"
-        />
-        <link 
-          rel="preload" 
-          href="https://fonts.gstatic.com/s/playfairdisplay/v30/nuFiD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDXbtM.woff2" 
-          as="font" 
-          type="font/woff2" 
-          crossOrigin="anonymous"
-        />
-        <meta name="theme-color" content="#0f172a" />
+        <meta name="theme-color" content="#1e4d3a" />
       </head>
-      <body className={`${sourceSansPro.variable} ${playfairDisplay.variable} ${libreBaskerville.variable} antialiased`}>
-        <a 
-          href="#main-content" 
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-green-600 text-white px-4 py-2 rounded-md z-50"
+      <body
+        className={`${inter.variable} ${bricolage.variable} ${jetbrainsMono.variable} antialiased`}
+      >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] bg-green-700 text-white px-4 py-2 rounded-md"
         >
           Skip to content
         </a>
         <Header />
-        <main id="main-content">
-          {children}
-        </main>
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>

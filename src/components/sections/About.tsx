@@ -1,101 +1,108 @@
 'use client'
 
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { motion, useReducedMotion } from 'framer-motion'
+import { Flame, Hammer, Warehouse } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
+const capabilities = [
+  {
+    icon: Flame,
+    title: 'Our own furnaces',
+    body: 'Electric-melt glass run to our own spec, not bought in and rebadged.',
+  },
+  {
+    icon: Hammer,
+    title: 'Moulds in-house',
+    body: 'New bottle shapes without third-party tooling fees or long queues.',
+  },
+  {
+    icon: Warehouse,
+    title: 'Stocked in Adelaide',
+    body: 'R&D, decoration and local inventory, so reorders ship fast.',
+  },
+]
+
+const stats = [
+  { value: '20,000', unit: 'm² plant' },
+  { value: '30,000', unit: 't / year' },
+  { value: '500-100k', unit: 'unit runs' },
+]
+
 export default function About() {
+  const reduce = useReducedMotion()
+  const ease = [0.16, 1, 0.3, 1] as const
+
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section id="about" className="py-24 lg:py-32 bg-paper">
+      <div className="mx-auto max-w-[1400px] px-6">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            initial={reduce ? false : { opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease }}
           >
-            <h2 className="text-4xl lg:text-6xl font-serif font-light text-slate-900 mb-8 scroll-mt-24">
-              Australian Wine Industry
-              <span className="block font-bold text-green-600">Excellence</span>
+            <h2 className="font-display text-4xl lg:text-5xl font-semibold tracking-tight text-ink text-balance">
+              We don&apos;t resell glass. We make it.
             </h2>
-            
-            <div className="space-y-6 text-lg font-sans text-slate-600 leading-relaxed">
+            <div className="mt-6 space-y-4 text-lg text-stone-600 leading-relaxed max-w-xl">
               <p>
-                Cape Glass is a leading importer of premium wine bottles for the Australian 
-                wine industry, specializing in sourcing exquisite, high-quality bottles globally 
-                and offering seamless supply chain solutions for wineries and related businesses.
+                Cape Glass is the Australian arm of our own glassworks in Jiangsu, China.
+                Buying direct from the people who melt the glass is what lets us say yes to
+                a 500-unit run or a one-off mould when importers can&apos;t.
               </p>
-              
               <p>
-                Our mission is to enhance your product&apos;s appeal and optimize production costs 
-                through direct relationships with international suppliers, providing the most 
-                competitive market pricing without compromising quality.
-              </p>
-              
-              <p>
-                With strategic warehousing in Adelaide and local showroom support, we deliver 
-                reliable, on-time service with minimized lead times and simplified logistics 
-                for Australia&apos;s discerning wine producers.
+                You deal with one team from first sketch to a pallet in Adelaide. No broker
+                in the middle, no markup on someone else&apos;s bottles.
               </p>
             </div>
-            
-            <div className="mt-12 grid grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">48hr</div>
-                <div className="font-sans text-slate-600">Response Time</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2 tabular-nums">30,000</div>
-                <div className="font-sans text-slate-600">Tons Annual Output</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2 tabular-nums">500+</div>
-                <div className="font-sans text-slate-600">Custom Batch Min</div>
-              </div>
+
+            <div className="mt-10 grid sm:grid-cols-3 gap-px bg-line rounded-2xl overflow-hidden border border-line">
+              {capabilities.map((cap) => (
+                <div key={cap.title} className="bg-paper p-5">
+                  <cap.icon size={22} strokeWidth={1.75} className="text-green-700" />
+                  <h3 className="mt-3 font-semibold text-ink">{cap.title}</h3>
+                  <p className="mt-1.5 text-sm text-stone-500 leading-snug">{cap.body}</p>
+                </div>
+              ))}
             </div>
-            
-            <div className="mt-10">
-              <Button 
-                variant="primary"
-                size="lg"
-                className="bg-slate-900 hover:bg-slate-800"
-              >
-                Our Story
-              </Button>
+
+            <div className="mt-9">
+              <Link href="/about">
+                <Button variant="outline">How we work</Button>
+              </Link>
             </div>
           </motion.div>
-          
+
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
+            initial={reduce ? false : { opacity: 0, scale: 0.97 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease }}
             className="relative"
           >
-            <div className="relative h-96 lg:h-[600px] rounded-2xl overflow-hidden">
+            <div className="relative aspect-[4/5] rounded-[28px] overflow-hidden shadow-soft">
               <Image
-                src="/images/services/artofprecision.jpg"
-                alt="Cape Glass Craftsmanship"
+                src="/images/services/furnace.jpg"
+                alt="Inside the Cape Glass furnace floor in Jiangsu"
                 fill
                 className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-bottle-deep/70 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 grid grid-cols-3 gap-4">
+                {stats.map((s) => (
+                  <div key={s.unit}>
+                    <div className="font-display text-2xl font-semibold text-white tabular-nums">
+                      {s.value}
+                    </div>
+                    <div className="text-xs text-white/75">{s.unit}</div>
+                  </div>
+                ))}
+              </div>
             </div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              viewport={{ once: true }}
-              className="absolute -bottom-8 -left-8 bg-white p-8 rounded-2xl shadow-2xl max-w-sm"
-            >
-              <h4 className="text-xl font-serif font-bold text-slate-900 mb-3">Sustainability Focus</h4>
-              <p className="font-sans text-slate-600">
-                Our manufacturing partners use advanced, eco-friendly technologies 
-                including electric furnaces to significantly reduce carbon footprint.
-              </p>
-            </motion.div>
           </motion.div>
         </div>
       </div>

@@ -1,144 +1,86 @@
 'use client'
 
 import Image from 'next/image'
-import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/Button'
+import Link from 'next/link'
+import { motion, useReducedMotion } from 'framer-motion'
+import { ArrowUpRight } from 'lucide-react'
 
 const featuredProducts = [
-  {
-    id: 'CG0172',
-    name: 'Classic Bordeaux',
-    image: '/images/bottles/0172.png',
-    description: 'Timeless elegance with clean lines',
-    specifications: ['750&nbsp;ml capacity', 'Premium glass weight', 'Standard cork finish']
-  },
-  {
-    id: 'CG0386',
-    name: 'Burgundy Elite',
-    image: '/images/bottles/0386.png',
-    description: 'Distinguished profile for premium brands',
-    specifications: ['750&nbsp;ml capacity', 'Heavy base design', 'Premium finish']
-  },
-  {
-    id: 'CG0504',
-    name: 'Contemporary Curve',
-    image: '/images/bottles/0504.png',
-    description: 'Modern design with sophisticated appeal',
-    specifications: ['750&nbsp;ml capacity', 'Curved shoulders', 'Elegant proportions']
-  },
-  {
-    id: 'CG0396',
-    name: 'Heritage Collection',
-    image: '/images/bottles/0396.png',
-    description: 'Traditional craftsmanship meets modern quality',
-    specifications: ['750&nbsp;ml capacity', 'Classic proportions', 'Heritage design']
-  },
-  {
-    id: 'CG0614',
-    name: 'Premium Reserve',
-    image: '/images/bottles/0614.png',
-    description: 'Ultra-premium bottle for exclusive brands',
-    specifications: ['750&nbsp;ml capacity', 'Extra heavy glass', 'Luxury finish']
-  },
-  {
-    id: 'CG0582',
-    name: 'Artisan Series',
-    image: '/images/bottles/0582.png',
-    description: 'Handcrafted aesthetic with modern precision',
-    specifications: ['750&nbsp;ml capacity', 'Artisan design', 'Unique silhouette']
-  }
+  { id: 'CG0386', name: 'Burgundy Elite', capacity: '750 ml', specs: '330 · 84 Ø · 840 g' },
+  { id: 'CG0452', name: 'Heavy Reserve', capacity: '750 ml', specs: '295 · 95 Ø · 1200 g' },
+  { id: 'CG0504', name: 'Contemporary', capacity: '750 ml', specs: '305 · 86 Ø · 820 g' },
+  { id: 'CG0594', name: 'Magnum', capacity: '1500 ml', specs: '345 · 100 Ø · 840 g' },
+  { id: 'CG0614', name: 'Ultra Magnum', capacity: '1500 ml', specs: '352 · 108 Ø · 980 g' },
+  { id: 'CG0582', name: 'Artisan', capacity: '750 ml', specs: '290 · 88 Ø · 950 g' },
 ]
 
 export default function FeaturedProducts() {
-  return (
-    <section id="products" className="py-20 bg-slate-50">
-      <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl lg:text-6xl font-serif font-light text-slate-900 mb-6 scroll-mt-24">
-            Featured <span className="font-bold text-green-600">Collection</span>
-          </h2>
-          <p className="text-xl font-sans text-slate-600 max-w-3xl mx-auto">
-            Discover our curated selection of premium glass bottles, each designed 
-            to enhance your product&apos;s market presence and brand identity.
-          </p>
-        </motion.div>
+  const reduce = useReducedMotion()
+  const ease = [0.16, 1, 0.3, 1] as const
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredProducts.map((product, index) => (
+  return (
+    <section id="products" className="py-24 lg:py-32 bg-paper-2">
+      <div className="mx-auto max-w-[1400px] px-6">
+        <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
+          <h2 className="font-display text-4xl lg:text-5xl font-semibold tracking-tight text-ink max-w-xl text-balance">
+            A range that already fits most cellars.
+          </h2>
+          <Link
+            href="/products"
+            className="group inline-flex items-center gap-1.5 text-base font-medium text-green-700 hover:text-green-800"
+          >
+            All 21 bottles
+            <ArrowUpRight
+              size={18}
+              strokeWidth={2}
+              className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </Link>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {featuredProducts.map((p, i) => (
             <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 40 }}
+              key={p.id}
+              initial={reduce ? false : { opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group border border-slate-100"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55, delay: (i % 3) * 0.06, ease }}
             >
-              <div className="relative h-80 bg-gradient-to-br from-slate-100 to-slate-200">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-contain p-8 transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-                <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                  {product.id}
+              <Link
+                href="/products"
+                className="group block rounded-3xl overflow-hidden border border-line bg-paper transition-shadow hover:shadow-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-green-700 focus-visible:ring-offset-2 focus-visible:ring-offset-paper-2"
+              >
+                <div
+                  className={`relative h-72 flex items-center justify-center p-8 ${
+                    i % 2 === 0 ? 'bg-stone-100' : 'bg-green-50'
+                  }`}
+                >
+                  <Image
+                    src={`/images/bottles/${p.id.replace('CG', '')}.png`}
+                    alt={`${p.name} ${p.capacity} wine bottle`}
+                    width={150}
+                    height={300}
+                    className="h-full w-auto object-contain transition-transform duration-500 group-hover:-translate-y-1.5"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                  <span className="absolute top-4 left-4 text-[11px] font-mono uppercase tracking-[0.14em] text-stone-400">
+                    {p.id}
+                  </span>
                 </div>
-              </div>
-              
-              <div className="p-6">
-                <h3 className="text-2xl font-serif font-bold text-slate-900 mb-2">{product.name}</h3>
-                <p className="font-sans text-slate-600 mb-4">{product.description}</p>
-                
-                <ul className="space-y-2 mb-6">
-                  {product.specifications.map((spec, idx) => (
-                    <li key={idx} className="flex items-center text-sm font-sans text-slate-500">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2" />
-                      {spec}
-                    </li>
-                  ))}
-                </ul>
-                
-                <div className="flex gap-3">
-                  <Button 
-                    variant="primary"
-                    className="flex-1 bg-slate-900 hover:bg-slate-800"
-                  >
-                    View Bottle Details
-                  </Button>
-                  <Button 
-                    variant="outline"
-                    className="border-green-600 text-green-600 hover:bg-green-600 hover:text-white"
-                  >
-                    Get Quote
-                  </Button>
+                <div className="flex items-center justify-between px-6 py-5 border-t border-line">
+                  <div>
+                    <h3 className="font-display text-lg font-semibold text-ink">{p.name}</h3>
+                    <p className="text-sm text-stone-500">{p.capacity}</p>
+                  </div>
+                  <p className="font-mono text-xs text-stone-400 tabular-nums text-right">
+                    {p.specs}
+                  </p>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>
-        
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <Button 
-            variant="primary"
-            size="lg"
-            className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
-          >
-            Explore Full Collection
-          </Button>
-        </motion.div>
       </div>
     </section>
   )

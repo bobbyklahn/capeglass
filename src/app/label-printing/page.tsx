@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { QuoteForm } from '@/components/label-printing/QuoteForm'
 
 export const metadata = {

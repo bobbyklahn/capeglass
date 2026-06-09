@@ -1,41 +1,159 @@
 @import "tailwindcss";
 
+/*
+  Cape Glass design system
+  - Accent: deep bottle green (the colour of the glass)
+  - Neutral: warm stone / bone
+  - Type: Bricolage Grotesque (display) + Inter (body) + JetBrains Mono (specs)
+
+  We override Tailwind's default `green`, `slate`, `gray` and the project's
+  `wine` scales so every page - including ones not hand-rewritten - adopts the
+  same palette. `font-serif` is remapped to the display grotesque so legacy
+  serif headings pick up the new type without per-file edits.
+*/
+
+@theme {
+  /* ---------- Type ---------- */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-serif: var(--font-bricolage), var(--font-inter), sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", monospace;
+
+  /* ---------- Neutrals: warm stone (overrides slate + gray) ---------- */
+  --color-stone-50: #f7f5f2;
+  --color-stone-100: #efece6;
+  --color-stone-200: #e3ddd3;
+  --color-stone-300: #cdc6b9;
+  --color-stone-400: #97907f;
+  --color-stone-500: #6f695d;
+  --color-stone-600: #524d44;
+  --color-stone-700: #3b372f;
+  --color-stone-800: #292621;
+  --color-stone-900: #1a1815;
+
+  --color-slate-50: #f7f5f2;
+  --color-slate-100: #efece6;
+  --color-slate-200: #e3ddd3;
+  --color-slate-300: #cdc6b9;
+  --color-slate-400: #97907f;
+  --color-slate-500: #6f695d;
+  --color-slate-600: #524d44;
+  --color-slate-700: #3b372f;
+  --color-slate-800: #232019;
+  --color-slate-900: #1a1815;
+
+  --color-gray-50: #f7f5f2;
+  --color-gray-100: #efece6;
+  --color-gray-200: #e3ddd3;
+  --color-gray-300: #cdc6b9;
+  --color-gray-400: #97907f;
+  --color-gray-500: #6f695d;
+  --color-gray-600: #524d44;
+  --color-gray-700: #3b372f;
+  --color-gray-800: #232019;
+  --color-gray-900: #1a1815;
+
+  /* ---------- Accent: bottle green (overrides green + wine) ---------- */
+  --color-green-50: #eef3ef;
+  --color-green-100: #dce7e0;
+  --color-green-200: #bcd0c4;
+  --color-green-300: #8fb3a0;
+  --color-green-400: #5e8e76;
+  --color-green-500: #3c725a;
+  --color-green-600: #2c5c47;
+  --color-green-700: #1e4d3a;
+  --color-green-800: #163a2c;
+  --color-green-900: #102a20;
+
+  --color-wine-50: #eef3ef;
+  --color-wine-100: #dce7e0;
+  --color-wine-200: #bcd0c4;
+  --color-wine-300: #8fb3a0;
+  --color-wine-400: #5e8e76;
+  --color-wine-500: #3c725a;
+  --color-wine-600: #2c5c47;
+  --color-wine-700: #1e4d3a;
+  --color-wine-800: #163a2c;
+  --color-wine-900: #102a20;
+
+  /* ---------- Semantic aliases (for hand-rewritten components) ---------- */
+  --color-paper: #f7f5f2;
+  --color-paper-2: #f0ece6;
+  --color-ink: #1a1815;
+  --color-ink-soft: #524d44;
+  --color-line: #e3ddd3;
+  --color-bottle: #1e4d3a;
+  --color-bottle-deep: #102a20;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  --background: #f7f5f2;
+  --foreground: #1a1815;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-source-sans);
-  --font-serif: var(--font-playfair);
-  --font-mono: var(--font-libre-baskerville);
-
-  /* Wine color palette */
-  --color-wine-50: #FDF2F4;
-  --color-wine-100: #FCE7EA;
-  --color-wine-200: #F9CFD6;
-  --color-wine-300: #F4A7B4;
-  --color-wine-400: #EC778D;
-  --color-wine-500: #E04968;
-  --color-wine-600: #CB2E52;
-  --color-wine-700: #6B0F1A;
-  --color-wine-800: #5A0D16;
-  --color-wine-900: #4C0C13;
+* {
+  border-color: var(--color-line);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-source-sans), sans-serif;
+  font-family: var(--font-sans);
+  font-feature-settings: "cv11", "ss01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display grotesque for headings by default; components can still opt out */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: #1e4d3a;
+  color: #f7f5f2;
+}
+
+/* Numerals in spec/data contexts line up */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Soft, hue-tinted elevation - never pure-black drop shadows */
+.shadow-soft {
+  box-shadow:
+    0 1px 2px rgba(26, 24, 21, 0.04),
+    0 8px 24px -8px rgba(26, 24, 21, 0.12);
+}
+
+.shadow-layered {
+  box-shadow:
+    0 1px 3px 0 rgb(26 24 21 / 0.08),
+    0 8px 20px -6px rgb(26 24 21 / 0.12);
+}
+
+/* Subtle film grain to break digital flatness; opt-in, non-interactive */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Hairline rule helper */
+.rule {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-line), transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -47,11 +165,4 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-.shadow-layered {
-  box-shadow: 
-    0 1px 3px 0 rgb(0 0 0 / 0.1),
-    0 4px 8px -2px rgb(0 0 0 / 0.1),
-    0 10px 16px -4px rgb(0 0 0 / 0.1);
 }

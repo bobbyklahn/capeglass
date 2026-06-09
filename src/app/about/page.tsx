@@ -1,573 +1,202 @@
 'use client'
 
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { motion, useReducedMotion } from 'framer-motion'
+import { PencilRuler, Printer, Sticker, Sparkles, Snowflake, Stamp, MapPin, Mail, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
-const companyValues = [
-  {
-    value: 'Quality Excellence',
-    description: 'Uncompromising commitment to premium glass quality that enhances wine presentation and preserves product integrity.',
-    icon: '🏆'
-  },
-  {
-    value: 'Swift Service',
-    description: 'Industry-leading 48-hour response times and streamlined processes that keep your production schedules on track.',
-    icon: '⚡'
-  },
-  {
-    value: 'Cost Efficiency',
-    description: 'Direct supplier relationships and strategic warehousing deliver significant cost savings without quality compromise.',
-    icon: '💰'
-  },
-  {
-    value: 'Local Support',
-    description: 'Adelaide-based team with showroom facilities providing personalized service and immediate assistance.',
-    icon: '🤝'
-  },
-  {
-    value: 'Sustainability',
-    description: 'Partnership with eco-friendly manufacturers using electric furnaces to minimize environmental impact.',
-    icon: '🌱'
-  },
-  {
-    value: 'Innovation',
-    description: 'Continuous development of new bottle designs and decorative techniques to keep brands ahead of trends.',
-    icon: '🚀'
-  }
+const stats = [
+  { value: '20,000', unit: 'm² plant' },
+  { value: '30,000', unit: 't / year' },
+  { value: '500-100k', unit: 'unit runs' },
+  { value: '1 day', unit: 'to a quote' },
 ]
 
-
-const manufacturingStats = [
-  { stat: '20,000', unit: 'sqm facility', description: 'Advanced manufacturing facility in Jiangsu, China' },
-  { stat: '30,000', unit: 'tons annually', description: 'Total glass production capacity per year' },
-  { stat: '500-100K', unit: 'unit flexibility', description: 'Custom batch sizes from boutique to commercial scale' },
-  { stat: '48hr', unit: 'response time', description: 'Guaranteed response for all inquiries and requests' }
+const capabilities = [
+  { icon: PencilRuler, title: 'Design & moulds', body: 'In-house R&D and custom mould tooling for your own bottle shape.' },
+  { icon: Stamp, title: 'Embossing', body: 'Raised and recessed detail moulded into the glass itself.' },
+  { icon: Printer, title: 'Screen printing', body: 'Durable ceramic and organic inks, fired for a permanent finish.' },
+  { icon: Sticker, title: 'Decal & heat transfer', body: 'Fine multi-colour graphics with crisp registration.' },
+  { icon: Snowflake, title: 'Frosting & coating', body: 'Acid-look frosting and coloured coatings across the bottle.' },
+  { icon: Sparkles, title: 'Polish & spray', body: 'Surface polishing and spray finishes for a premium feel.' },
 ]
 
 export default function AboutPage() {
+  const reduce = useReducedMotion()
+  const ease = [0.16, 1, 0.3, 1] as const
+
   return (
-    <div className="pt-20">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <div className="pt-[72px]">
+      {/* Header */}
+      <section className="bg-paper py-20 lg:py-28">
+        <div className="mx-auto max-w-[1400px] px-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={reduce ? false : { opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease }}
             >
-              <h1 className="text-5xl lg:text-7xl font-serif font-light text-white mb-8">
-                About
-                <span className="block font-bold text-green-400">Cape Glass</span>
+              <span className="text-xs font-mono uppercase tracking-[0.18em] text-green-700">About Cape Glass</span>
+              <h1 className="mt-5 font-display text-5xl lg:text-6xl font-semibold tracking-[-0.03em] text-ink text-balance">
+                The factory is ours.
               </h1>
-              <p className="text-xl font-sans text-gray-300 mb-8 leading-relaxed">
-                Leading importer of premium wine bottles for the Australian wine industry. 
-                We specialize in sourcing exquisite, high-quality bottles globally while 
-                offering seamless supply chain solutions for wineries and related businesses.
+              <p className="mt-6 max-w-xl text-lg text-stone-600 leading-relaxed">
+                Cape Glass is the Australian arm of a glassworks in Jiangsu, China. We melt,
+                mould, decorate and warehouse our own bottles, so wineries here buy straight
+                from the maker instead of through an importer.
               </p>
-              <div className="flex gap-4">
-                <Button 
-                  variant="primary"
-                  size="lg"
-                  className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
-                >
-                  Our Services
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  className="border-white text-white hover:bg-white hover:text-slate-900"
-                >
-                  Visit Showroom
-                </Button>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <Link href="/contact"><Button variant="primary" size="lg" className="w-full sm:w-auto">Request a quote</Button></Link>
+                <Link href="/products"><Button variant="outline" size="lg" className="w-full sm:w-auto">See the bottles</Button></Link>
               </div>
             </motion.div>
-            
+
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
+              initial={reduce ? false : { opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease }}
+              className="relative aspect-[5/4] rounded-[28px] overflow-hidden shadow-soft"
             >
-              <div className="relative h-96 lg:h-[500px]">
-                <Image
-                  src="/images/services/premium bottle.jpg"
-                  alt="Premium Wine Bottles"
-                  fill
-                  className="object-cover rounded-2xl"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent rounded-2xl" />
-                <div className="absolute bottom-8 left-8 right-8">
-                  <div className="bg-white/90 backdrop-blur-sm p-6 rounded-xl">
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">Our Mission</h3>
-                    <p className="text-slate-600">
-                      To enhance your product&apos;s appeal and optimize production costs 
-                      through premium glass solutions.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <Image src="/images/services/premium bottle.jpg" alt="A premium Cape Glass wine bottle" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" priority />
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Company Story */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      {/* Stats */}
+      <section className="border-y border-line bg-paper-2">
+        <div className="mx-auto max-w-[1400px] px-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-line">
+            {stats.map((s) => (
+              <div key={s.unit} className="px-6 py-8 lg:py-10">
+                <div className="font-display text-3xl lg:text-4xl font-semibold text-ink tabular-nums">{s.value}</div>
+                <div className="mt-1 text-sm text-stone-500">{s.unit}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Story */}
+      <section className="py-24 lg:py-32 bg-paper">
+        <div className="mx-auto max-w-[1400px] px-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              initial={reduce ? false : { opacity: 0, scale: 0.97 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease }}
+              className="relative aspect-[4/3] rounded-[28px] overflow-hidden shadow-soft order-last lg:order-first"
             >
-              <h2 className="text-4xl lg:text-5xl font-serif font-light text-slate-900 mb-8">
-                Australian Wine Industry
-                <span className="block font-bold text-green-600">Excellence</span>
+              <Image src="/images/services/furnace.jpg" alt="The Jiangsu furnace floor with bottles on the line" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+            </motion.div>
+            <motion.div
+              initial={reduce ? false : { opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.7, ease }}
+            >
+              <h2 className="font-display text-4xl lg:text-5xl font-semibold tracking-tight text-ink text-balance">
+                From the furnace to your dock.
               </h2>
-              
-              <div className="space-y-6 text-lg font-sans text-slate-600 leading-relaxed">
+              <div className="mt-6 space-y-4 text-lg text-stone-600 leading-relaxed max-w-xl">
                 <p>
-                  Cape Glass Australia emerged from a clear vision: to provide Australian 
-                  wine producers with unparalleled access to premium glass bottles while 
-                  solving the industry&apos;s most pressing supply chain challenges.
+                  Our Jiangsu plant runs electric-melt furnaces, which cut the carbon of
+                  glassmaking and hold a steadier temperature, so weight and clarity stay
+                  consistent run to run.
                 </p>
-                
                 <p>
-                  Based in Adelaide, the heart of Australia&apos;s wine country, we understand 
-                  the unique needs of local wine producers. From boutique family wineries 
-                  to large-scale commercial operations, we deliver tailored solutions that 
-                  enhance product appeal while optimizing costs.
+                  Because we own the line, small runs and one-off moulds are normal work, not
+                  an exception we charge a premium for. Finished bottles are shipped to our
+                  Adelaide warehouse, where stock and reorders sit close to your winery.
                 </p>
-                
-                <p>
-                  Our strategic approach combines global sourcing expertise with local 
-                  market knowledge, ensuring every client receives the perfect bottles 
-                  for their wine&apos;s character and market positioning.
-                </p>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="relative h-96 lg:h-[500px] rounded-2xl overflow-hidden">
-                <Image
-                  src="/images/services/bottlesupply.jpg"
-                  alt="Wine Bottle Collection"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                  viewport={{ once: true }}
-                  className="absolute bottom-8 left-8 bg-white/90 backdrop-blur-sm p-6 rounded-xl max-w-sm"
-                >
-                  <h4 className="text-lg font-serif font-bold text-slate-900 mb-2">Adelaide Advantage</h4>
-                  <p className="font-sans text-slate-600 text-sm">
-                    Strategic location in Australia&apos;s wine capital provides unmatched 
-                    industry insight and rapid response capabilities.
-                  </p>
-                </motion.div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Company Values */}
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl lg:text-5xl font-serif font-light text-slate-900 mb-6">
-              Our <span className="font-bold text-green-600">Values</span>
+      {/* Capabilities */}
+      <section className="py-24 lg:py-32 bg-paper-2">
+        <div className="mx-auto max-w-[1400px] px-6">
+          <div className="max-w-2xl mb-12">
+            <h2 className="font-display text-4xl lg:text-5xl font-semibold tracking-tight text-ink text-balance">
+              Everything the bottle needs, in one plant.
             </h2>
-            <p className="text-xl font-sans text-slate-600 max-w-3xl mx-auto">
-              Six core values drive everything we do at Cape Glass, ensuring exceptional 
-              service and results for every client, every project, every time.
+            <p className="mt-5 text-lg text-stone-600 leading-relaxed">
+              Design, moulding and decoration sit under one roof, so a single team owns the
+              result from first sketch to finished glass.
             </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {companyValues.map((value, index) => (
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-line rounded-3xl overflow-hidden border border-line">
+            {capabilities.map((c) => (
               <motion.div
-                key={value.value}
-                initial={{ opacity: 0, y: 30 }}
+                key={c.title}
+                initial={reduce ? false : { opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, ease }}
+                className="bg-paper p-7"
               >
-                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {value.icon}
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-4">{value.value}</h3>
-                <p className="text-slate-600 leading-relaxed">{value.description}</p>
+                <c.icon size={24} strokeWidth={1.75} className="text-green-700" />
+                <h3 className="mt-4 font-display text-xl font-semibold text-ink">{c.title}</h3>
+                <p className="mt-2 text-stone-500 leading-snug">{c.body}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Manufacturing Partnership */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6">
-              Manufacturing <span className="font-bold text-green-600">Partnership</span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Our exclusive partnership with a state-of-the-art facility in Jiangsu, China 
-              ensures consistent quality, innovative capabilities, and sustainable production.
-            </p>
-          </motion.div>
-
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <div className="relative h-96 rounded-2xl overflow-hidden">
-                <Image
-                  src="/images/services/furnace.jpg"
-                  alt="Glass Manufacturing Facility"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-white/90 backdrop-blur-sm p-4 rounded-lg">
-                    <h4 className="font-bold text-slate-900 mb-1">Advanced Manufacturing</h4>
-                    <p className="text-slate-600 text-sm">
-                      Robotic precision and electric furnace technology for consistent quality
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-3xl font-bold text-slate-900 mb-6">Jiangsu Facility Excellence</h3>
-              
-              <div className="space-y-6">
-                <div className="border-l-4 border-green-500 pl-6">
-                  <h4 className="text-xl font-bold text-slate-900 mb-2">Facility Scale</h4>
-                  <p className="text-slate-600">
-                    Approximately 20,000 square meters of advanced manufacturing space 
-                    with 30,000 tons annual production capacity.
-                  </p>
-                </div>
-                
-                <div className="border-l-4 border-green-500 pl-6">
-                  <h4 className="text-xl font-bold text-slate-900 mb-2">Specialization</h4>
-                  <p className="text-slate-600">
-                    Small-batch production expertise with diverse specifications, 
-                    solving common industry challenges of large minimums and limited types.
-                  </p>
-                </div>
-                
-                <div className="border-l-4 border-green-500 pl-6">
-                  <h4 className="text-xl font-bold text-slate-900 mb-2">Sustainability</h4>
-                  <p className="text-slate-600">
-                    Low-carbon electric power for glass melting significantly reduces 
-                    environmental impact compared to traditional furnaces.
-                  </p>
-                </div>
-                
-                <div className="border-l-4 border-green-500 pl-6">
-                  <h4 className="text-xl font-bold text-slate-900 mb-2">R&D Center</h4>
-                  <p className="text-slate-600">
-                    Leading research and development focused on bottle design, aesthetics, 
-                    and material innovation with major international clients.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Manufacturing Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="grid md:grid-cols-4 gap-8 bg-slate-900 rounded-2xl p-8 text-white"
-          >
-            {manufacturingStats.map((item, index) => (
-              <motion.div
-                key={item.stat}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center"
-              >
-                <div className="text-3xl lg:text-4xl font-bold text-green-400 mb-2">{item.stat}</div>
-                <div className="text-lg font-semibold mb-1">{item.unit}</div>
-                <div className="text-gray-300 text-sm">{item.description}</div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Deep Processing Capabilities */}
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl font-light text-slate-900 mb-8">
-                Deep-Processing
-                <span className="block font-bold text-green-600">Capabilities</span>
+      {/* Adelaide */}
+      <section className="py-24 lg:py-32 bg-stone-900 text-white">
+        <div className="mx-auto max-w-[1400px] px-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+            <div>
+              <span className="text-xs font-mono uppercase tracking-[0.18em] text-green-300">Adelaide</span>
+              <h2 className="mt-5 font-display text-4xl lg:text-5xl font-semibold tracking-tight text-balance">
+                Close to the wine country we serve.
               </h2>
-              
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                Our manufacturing partner offers integrated services from design and R&D 
-                through final production, ensuring seamless quality control and innovative solutions.
+              <p className="mt-6 max-w-md text-lg text-white/70 leading-relaxed">
+                Our warehouse and showroom sit in Edinburgh North, a short drive from the
+                Barossa, Clare and McLaren Vale. Come and handle the glass before you commit
+                to a run.
               </p>
+              <div className="mt-9 space-y-4">
+                <a href="https://maps.google.com/?q=22+Priority+Court+Edinburgh+North+SA+5113" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-white/80 hover:text-green-200 transition-colors">
+                  <MapPin size={18} strokeWidth={1.75} className="mt-1 text-green-300 shrink-0" />
+                  22 Priority Court, Edinburgh North SA 5113
+                </a>
+                <a href="mailto:jose.zzh@outlook.com.au" className="flex items-center gap-3 text-white/80 hover:text-green-200 transition-colors">
+                  <Mail size={18} strokeWidth={1.75} className="text-green-300 shrink-0" />
+                  jose.zzh@outlook.com.au
+                </a>
+                <a href="tel:0434719886" className="flex items-center gap-3 text-white/80 hover:text-green-200 transition-colors">
+                  <Phone size={18} strokeWidth={1.75} className="text-green-300 shrink-0" />
+                  0434 719 886
+                </a>
+              </div>
+            </div>
 
-              <div className="grid grid-cols-2 gap-6">
-                <div className="bg-white p-6 rounded-xl shadow-lg">
-                  <div className="text-2xl mb-3">🎨</div>
-                  <h4 className="font-bold text-slate-900 mb-2">Design & R&D</h4>
-                  <p className="text-slate-600 text-sm">Custom bottle design and material innovation</p>
-                </div>
-                
-                <div className="bg-white p-6 rounded-xl shadow-lg">
-                  <div className="text-2xl mb-3">🏷️</div>
-                  <h4 className="font-bold text-slate-900 mb-2">Decal Application</h4>
-                  <p className="text-slate-600 text-sm">Professional decal application services</p>
-                </div>
-                
-                <div className="bg-white p-6 rounded-xl shadow-lg">
-                  <div className="text-2xl mb-3">🖨️</div>
-                  <h4 className="font-bold text-slate-900 mb-2">Screen Printing</h4>
-                  <p className="text-slate-600 text-sm">High-quality glass screen printing</p>
-                </div>
-                
-                <div className="bg-white p-6 rounded-xl shadow-lg">
-                  <div className="text-2xl mb-3">🔥</div>
-                  <h4 className="font-bold text-slate-900 mb-2">Heat Transfer</h4>
-                  <p className="text-slate-600 text-sm">Advanced heat transfer applications</p>
-                </div>
-                
-                <div className="bg-white p-6 rounded-xl shadow-lg">
-                  <div className="text-2xl mb-3">✨</div>
-                  <h4 className="font-bold text-slate-900 mb-2">Polishing</h4>
-                  <p className="text-slate-600 text-sm">Premium surface finishing techniques</p>
-                </div>
-                
-                <div className="bg-white p-6 rounded-xl shadow-lg">
-                  <div className="text-2xl mb-3">🎯</div>
-                  <h4 className="font-bold text-slate-900 mb-2">Spraying</h4>
-                  <p className="text-slate-600 text-sm">Specialized glass coating applications</p>
-                </div>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="relative h-96 lg:h-[600px] rounded-2xl overflow-hidden">
-                <Image
-                  src="/images/services/artofprecision.jpg"
-                  alt="Precision Glass Processing"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                
-                <div className="absolute bottom-8 left-8 right-8">
-                  <div className="bg-white/95 backdrop-blur-sm p-6 rounded-xl">
-                    <h4 className="text-xl font-bold text-slate-900 mb-3">Integration Excellence</h4>
-                    <p className="text-slate-600 mb-4">
-                      Seamless integration from concept through production ensures 
-                      consistent quality and innovative results.
-                    </p>
-                    <div className="flex items-center text-sm text-green-600 font-semibold">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mr-2" />
-                      ISO Certified Processes
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* Location & Contact */}
-      <section className="py-20 bg-slate-900">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl font-light text-white mb-8">
-                Adelaide
-                <span className="block font-bold text-green-400">Headquarters</span>
-              </h2>
-              
-              <div className="space-y-6 text-gray-300">
-                <div className="flex items-start space-x-4">
-                  <div className="w-6 h-6 text-green-400 mt-1">
-                    <svg fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-white font-semibold mb-2">Strategic Location</h4>
-                    <p className="leading-relaxed">
-                      Located at 22 Priority Court, Edinburgh North, SA 5113, our Adelaide facility 
-                      provides strategic warehousing and showroom services in the heart of 
-                      Australia&apos;s wine country.
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-6 h-6 text-green-400 mt-1">
-                    <svg fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c0-1.1-.9-2-2-2H7V5h12v12c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-white font-semibold mb-2">Showroom Experience</h4>
-                    <p className="leading-relaxed">
-                      Visit our Adelaide showroom to experience our complete range of bottles 
-                      and decorative services. See and feel the quality that sets Cape Glass apart.
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-6 h-6 text-green-400 mt-1">
-                    <svg fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-white font-semibold mb-2">Get In Touch</h4>
-                    <p className="leading-relaxed">
-                      Phone: 0434 719 886<br />
-                      Email: info@capeglass.com.au<br />
-                      Web: www.capeglass.com.au
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-green-600 rounded-2xl p-8 text-white"
-            >
-              <h3 className="text-2xl font-bold mb-6">Ready to Partner With Us?</h3>
-              <p className="text-green-100 mb-8">
-                Join hundreds of Australian wineries who trust Cape Glass for their 
-                premium bottle needs. Experience our 48-hour response guarantee and 
-                unmatched service quality.
-              </p>
-              
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center">
-                  <div className="w-6 h-6 text-green-200 mr-3">
-                    <svg fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                  </div>
-                  48-hour response guarantee
-                </div>
-                <div className="flex items-center">
-                  <div className="w-6 h-6 text-green-200 mr-3">
-                    <svg fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                  </div>
-                  Competitive pricing guaranteed
-                </div>
-                <div className="flex items-center">
-                  <div className="w-6 h-6 text-green-200 mr-3">
-                    <svg fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                  </div>
-                  Local Adelaide showroom access
-                </div>
-                <div className="flex items-center">
-                  <div className="w-6 h-6 text-green-200 mr-3">
-                    <svg fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                  </div>
-                  Sustainable supply chain solutions
-                </div>
-              </div>
-              
-              <div className="space-y-3">
-                <Button 
-                  variant="secondary"
-                  size="lg"
-                  className="w-full bg-white text-green-600 hover:bg-green-50"
-                >
-                  Schedule Showroom Visit
-                </Button>
-                <Button 
-                  variant="outline"
-                  size="lg"
-                  className="w-full border-white text-white hover:bg-white hover:text-green-600"
-                >
-                  Request Quote
-                </Button>
-              </div>
-            </motion.div>
+            <div className="rounded-3xl bg-white/5 border border-white/10 p-8 lg:p-10 flex flex-col justify-center">
+              <h3 className="font-display text-2xl font-semibold">What you get, working direct</h3>
+              <ul className="mt-6 space-y-4">
+                {[
+                  'No importer markup on the bottles',
+                  'Custom moulds and runs from 500 units',
+                  'Local stock, so reorders ship quickly',
+                  'One team from design to delivery',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-white/85">
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-green-300 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Link href="/contact" className="mt-8">
+                <Button variant="primary" className="w-full">Request a quote</Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
