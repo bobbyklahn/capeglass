@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/Button'
 
 const details = [
   { icon: Mail, label: 'Email', value: 'jose.zzh@outlook.com.au', href: 'mailto:jose.zzh@outlook.com.au' },
-  { icon: Phone, label: 'Phone', value: '0434 719 886', href: 'tel:0434719886' },
+  { icon: Phone, label: 'Phone', value: '0423 733 078', href: 'tel:0423733078' },
   {
     icon: MapPin,
     label: 'Adelaide warehouse & showroom',

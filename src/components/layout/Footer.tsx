@@ -57,9 +57,9 @@ export default function Footer() {
                 <Mail size={18} strokeWidth={1.75} className="text-green-300 shrink-0" />
                 jose.zzh@outlook.com.au
               </a>
-              <a href="tel:0434719886" className="flex items-center gap-3 text-white/80 hover:text-green-200 transition-colors">
+              <a href="tel:0423733078" className="flex items-center gap-3 text-white/80 hover:text-green-200 transition-colors">
                 <Phone size={18} strokeWidth={1.75} className="text-green-300 shrink-0" />
-                0434 719 886
+                0423 733 078
               </a>
               <p className="text-white/55 text-sm pt-1">
                 22 Priority Court, Edinburgh North SA 5113

@@ -7,13 +7,13 @@ import { Button } from '@/components/ui/Button'
 
 const contactMethods = [
   { method: 'Email', value: 'jose.zzh@outlook.com.au', description: 'Quotes and detailed enquiries', icon: Mail, link: 'mailto:jose.zzh@outlook.com.au' },
-  { method: 'Phone', value: '0434 719 886', description: 'Mon to Fri, business hours', icon: Phone, link: 'tel:0434719886' },
+  { method: 'Phone', value: '0423 733 078', description: 'Mon to Fri, business hours', icon: Phone, link: 'tel:0423733078' },
   { method: 'Adelaide', value: '22 Priority Court, Edinburgh North', description: 'Warehouse & showroom, by appointment', icon: MapPin, link: 'https://maps.google.com/?q=22+Priority+Court+Edinburgh+North+SA+5113' },
 ]
 
 const faqs = [
   { question: 'What is your minimum order?', answer: 'Most bottles and finishes start at 500 units. Large formats (3L and up) start at 50. Samples can be just a handful of pieces.' },
-  { question: 'How fast do you reply?', answer: 'We aim to come back with options and a price within one business day. For anything urgent, call 0434 719 886.' },
+  { question: 'How fast do you reply?', answer: 'We aim to come back with options and a price within one business day. For anything urgent, call 0423 733 078.' },
   { question: 'Can you make a custom shape?', answer: 'Yes. Custom moulds run from 500 to 100,000 units, and take roughly 6 to 10 weeks from sign-off, including tooling.' },
   { question: 'What decoration can you do?', answer: 'Embossing and debossing, screen printing, decals and heat transfer, frosting and coating, plus printed wine labels to match.' },
   { question: 'Can I see samples first?', answer: 'Always. Visit the Edinburgh North showroom to handle the range, and we proof and sample before any full production run.' },
